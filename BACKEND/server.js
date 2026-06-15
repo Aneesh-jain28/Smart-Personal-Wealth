@@ -11,6 +11,9 @@ dotenv.config();
 // Initialize express app
 const app = express();
 
+// Tell Express to trust the Render load balancer (FIXES PROXY ERROR)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 
