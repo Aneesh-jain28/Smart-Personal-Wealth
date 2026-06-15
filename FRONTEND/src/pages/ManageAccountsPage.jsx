@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Plus, Pencil, Trash2, ArrowLeft, Wallet, X, Save } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import BASE_URL from '../utils/api';
 
-const API = 'http://localhost:5000/api/financials';
+const API =`{BASE_URL}/financials`;
 
 const ACCOUNT_TYPES = ['savings', 'investment', 'debt'];
 const TAX_TREATMENTS = ['taxable', 'deferred', 'exempt'];

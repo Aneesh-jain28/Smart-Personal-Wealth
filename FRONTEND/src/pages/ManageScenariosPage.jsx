@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Plus, Pencil, Trash2, ArrowLeft, Zap, X, Save } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
-
-const API = 'http://localhost:5000/api/financials';
+import BASE_URL from '../utils/api';
+const API = `{BASE_URL}/financials`;
 
 const SCENARIO_TYPES = ['one-time-expense', 'income-change'];
 const FREQUENCIES = ['monthly', 'annually'];

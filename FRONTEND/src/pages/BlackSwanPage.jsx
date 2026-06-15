@@ -11,6 +11,7 @@ import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis,
   Tooltip, CartesianGrid, ReferenceLine,
 } from 'recharts';
+import BASE_URL from '../utils/api.js';
 
 // ─── Scenario Presets ────────────────────────────────────────────────
 const SHOCK_PRESETS = [
@@ -87,7 +88,7 @@ export default function BlackSwanPage() {
     (async () => {
       try {
         const [finRes, ratesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/financials'),
+          axios.get(`{BASE_URL}/financials`),
           fetchExchangeRates(),
         ]);
         if (finRes.data.success) {

@@ -7,12 +7,12 @@ import ScenarioToggle from './components/ScenarioToggle.jsx';
 import StatCards from './components/StatCards.jsx';
 import WealthChart from './components/WealthChart.jsx';
 import FireInsights from './components/FireInsights.jsx';
-
 import { generateProjection, runMonteCarlo, calculateInterestSaved } from './utils/financeHelpers.js';
 import { fetchExchangeRates, convertAccountsToBase, FIAT_CURRENCIES, CURRENCY_INFO, formatCurrencyAmount } from './utils/currencyHelper.js';
 import { useAuth } from './context/AuthContext';
 import { useTheme } from './context/ThemeContext';
 import './App.css';
+import BASE_URL from './utils/api.js';
 
 function App() {
   const { user, logout } = useAuth();
@@ -57,7 +57,7 @@ function App() {
     setError(null);
     
     try {
-      const response = await axios.get('http://localhost:5000/api/financials');
+      const response = await axios.get(`{BASE_URL}/financials`);
       
       if (response.data.success) {
         const fetchedAccounts = response.data.data.accounts || [];

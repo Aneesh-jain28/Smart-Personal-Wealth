@@ -14,7 +14,7 @@ import {
   CartesianGrid,
   Legend,
 } from 'recharts';
-
+import BASE_URL from '../utils/api.js';
 // ─── State / Region Tax & COL Data ───────────────────────────────────
 // taxRate = top marginal state income tax rate (%)
 // col     = cost-of-living index (1.00 = US national average)
@@ -169,7 +169,7 @@ export default function TaxSimulatorPage() {
     const fetchData = async () => {
       try {
         const [finRes, ratesRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/financials'),
+          axios.get(`{BASE_URL}/financials`),
           fetchExchangeRates(),
         ]);
         if (finRes.data.success) {
