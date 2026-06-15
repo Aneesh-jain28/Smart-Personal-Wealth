@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useTheme } from '../context/ThemeContext';
 import BASE_URL from '../utils/api';
 
-const API_URL = `{BASE_URL}/ai`;
+const API_URL = `${BASE_URL}/ai`;
 
 const SUGGESTIONS = [
   { label: 'How close am I to FIRE?', text: 'How close am I to FIRE?' },

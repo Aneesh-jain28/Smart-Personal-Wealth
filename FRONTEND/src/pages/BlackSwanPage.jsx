@@ -88,7 +88,7 @@ export default function BlackSwanPage() {
     (async () => {
       try {
         const [finRes, ratesRes] = await Promise.all([
-          axios.get(`{BASE_URL}/financials`),
+          axios.get(`${BASE_URL}/financials`),
           fetchExchangeRates(),
         ]);
         if (finRes.data.success) {

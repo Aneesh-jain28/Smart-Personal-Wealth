@@ -57,7 +57,7 @@ function App() {
     setError(null);
     
     try {
-      const response = await axios.get(`{BASE_URL}/financials`);
+      const response = await axios.get(`${BASE_URL}/financials`);
       
       if (response.data.success) {
         const fetchedAccounts = response.data.data.accounts || [];

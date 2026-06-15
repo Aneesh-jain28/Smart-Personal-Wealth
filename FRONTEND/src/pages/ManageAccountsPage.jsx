@@ -5,7 +5,7 @@ import { Plus, Pencil, Trash2, ArrowLeft, Wallet, X, Save } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import BASE_URL from '../utils/api';
 
-const API =`{BASE_URL}/financials`;
+const API =`${BASE_URL}/financials`;
 
 const ACCOUNT_TYPES = ['savings', 'investment', 'debt'];
 const TAX_TREATMENTS = ['taxable', 'deferred', 'exempt'];

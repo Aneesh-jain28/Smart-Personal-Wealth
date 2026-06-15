@@ -3,7 +3,7 @@ import { MessageCircle, X, Send, Bot, User, Loader2, Trash2 } from 'lucide-react
 import axios from 'axios';
 import BASE_URL from '../utils/api';
 
-const API_URL = `{BASE_URL}/ai`;
+const API_URL = `${BASE_URL}/ai`;
 
 export default function AiChat({ darkMode }) {
   const [open, setOpen] = useState(false);
