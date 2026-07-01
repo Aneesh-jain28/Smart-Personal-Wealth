@@ -5,7 +5,7 @@ A full-stack personal finance dashboard that helps you track accounts, project n
 ![Tech Stack](https://img.shields.io/badge/React-19-blue) ![Tech Stack](https://img.shields.io/badge/Node.js-Express-green) ![Tech Stack](https://img.shields.io/badge/MongoDB-Mongoose-brightgreen) ![Tech Stack](https://img.shields.io/badge/TailwindCSS-4-06B6D4) ![Tech Stack](https://img.shields.io/badge/Mistral_AI-Powered-yellow)
 
 ---
-
+⚠️ Note: Backend is hosted on Render's free tier and may take 30-50 seconds to spin up on first load if idle. Please wait for the initial load — subsequent requests are fast.
 ## 📖 Table of Contents
 
 1. [Features](#-features)
