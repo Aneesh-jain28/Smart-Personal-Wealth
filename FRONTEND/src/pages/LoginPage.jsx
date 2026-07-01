@@ -65,7 +65,11 @@ export default function LoginPage() {
 
           <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Welcome back</h1>
           <p className={`text-sm mb-6 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>Sign in to your account</p>
-
+          
+          <strong className="text-yellow-100 block mt-2 text-xs bg-yellow-900/30 p-2 rounded border border-yellow-700/50">
+            Note: Live API is hosted on Render Free Tier. Initial sign-in request may take 30-40 seconds to spin up the container.
+          </strong> <br></br>
+          
           {apiError && (
             <div className="mb-4 px-3 py-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
               {apiError}
