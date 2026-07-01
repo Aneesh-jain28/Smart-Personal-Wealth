@@ -72,7 +72,11 @@ export default function SignupPage() {
 
           <h1 className={`text-2xl font-bold mb-1 ${darkMode ? 'text-white' : 'text-slate-800'}`}>Create account</h1>
           <p className={`text-sm mb-6 ${darkMode ? 'text-slate-400' : 'text-slate-500'}`}>Get started in under a minute</p>
-
+          
+          <strong className="text-yellow-100 block mt-2 text-xs bg-yellow-900/30 p-2 rounded border border-yellow-700/50">
+            Note: Live API is hosted on Render Free Tier. Initial sign-up request may take 30-40 seconds to spin up the container.
+          </strong><br></br>
+          
           {apiError && (
             <div className="mb-4 px-3 py-2 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
               {apiError}
