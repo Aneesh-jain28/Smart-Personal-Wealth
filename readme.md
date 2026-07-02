@@ -124,20 +124,20 @@ MONGODB_URI=mongodb://localhost:27017/smart-personal-wealth
 JWT_SECRET=your-secure-secret-key-change-this
 JWT_EXPIRE=7d
 
-# Google Mistral AI API Key (required for AI chat feature)
-# Get your key from: https://aistudio.google.com/app/apikey
-Mistral_API_KEY=your-Mistral-api-key-here
+# Mistral AI API Key (required for AI chat feature)
+# Get your key from the Mistral AI Console (La Plateforme): https://console.mistral.ai/
+MISTRAL_API_KEY=your-mistral-api-key-here
 ```
 
 > ⚠️ **Important:** Replace `your-secure-secret-key-change-this` with a strong random string and add your own Mistral API key.
 
 #### How to get a Mistral API Key:
 
-1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click **"Create API Key"**
-4. Copy the key and paste it as `Mistral_API_KEY` in your `.env` file
-
+1. Go to the [Mistral AI Console (La Plateforme)](https://console.mistral.ai/)
+2. Sign in or create a Mistral AI account
+3. Navigate to the **"API Keys"** section in the dashboard
+4. Click **"Create new key"**, give it a name, and copy it
+5. Paste the key as `MISTRAL_API_KEY` in your `.env` file
 ### 4. Set Up the Frontend
 
 ```bash
