@@ -8,7 +8,7 @@ import StatCards from './components/StatCards.jsx';
 import WealthChart from './components/WealthChart.jsx';
 import FireInsights from './components/FireInsights.jsx';
 import { generateProjection, runMonteCarlo, calculateInterestSaved } from './utils/financeHelpers.js';
-import { fetchExchangeRates, convertAccountsToBase, FIAT_CURRENCIES, CURRENCY_INFO, formatCurrencyAmount } from './utils/currencyHelper.js';
+import { fetchExchangeRates, convertAccountsToBase, convertCurrency, FIAT_CURRENCIES, CURRENCY_INFO, formatCurrencyAmount } from './utils/currencyHelper.js';
 import { useAuth } from './context/AuthContext';
 import { useTheme } from './context/ThemeContext';
 import './App.css';
@@ -112,7 +112,7 @@ function App() {
     });
     setActiveScenarioIds(resetActive);
   }, [scenarios]);
-  
+
   // Scenario amounts are stored in USD by default. Convert copies for display
   // and projection so they always use the same currency as converted accounts.
   // `currency` also supports scenario records created with a future explicit
@@ -130,13 +130,13 @@ function App() {
       ),
     }));
   }, [scenarios, baseCurrency, exchangeRates]);
-  
+
   // Projections
   const projectionData = useMemo(() => {
     if (accounts.length === 0) return [];
-    const activeScenarios = scenarios.filter((_, index) => activeScenarioIds[index]);
+    const activeScenarios = scenariosInBaseCurrency.filter((_, index) => activeScenarioIds[index]);
     return generateProjection(accounts, activeScenarios, 10, debtStrategy, extraDebtPayment, applyTaxDrag, inflationRate);
-  }, [accounts, scenarios, activeScenarioIds, debtStrategy, extraDebtPayment, applyTaxDrag, inflationRate]);
+  }, [accounts, scenariosInBaseCurrency, activeScenarioIds, debtStrategy, extraDebtPayment, applyTaxDrag, inflationRate]);
 
   const interestSaved = useMemo(() => {
     if (accounts.length === 0 || debtStrategy === 'none') return 0;
@@ -654,7 +654,7 @@ function App() {
             </div>
 
             <ScenarioToggle
-              scenarios={scenarios}
+              scenarios={scenariosInBaseCurrency}
               activeScenarioIds={activeScenarioIds}
               onToggle={handleScenarioToggle}
               onReset={handleResetScenarios}
