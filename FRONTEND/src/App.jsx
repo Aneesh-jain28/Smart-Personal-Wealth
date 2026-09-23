@@ -112,7 +112,25 @@ function App() {
     });
     setActiveScenarioIds(resetActive);
   }, [scenarios]);
+  
+  // Scenario amounts are stored in USD by default. Convert copies for display
+  // and projection so they always use the same currency as converted accounts.
+  // `currency` also supports scenario records created with a future explicit
+  // source-currency field; existing records continue to be treated as USD.
+  const scenariosInBaseCurrency = useMemo(() => {
+    if (!exchangeRates) return scenarios;
 
+    return scenarios.map((scenario) => ({
+      ...scenario,
+      amount: convertCurrency(
+        scenario.amount,
+        scenario.currency || 'USD',
+        baseCurrency,
+        exchangeRates,
+      ),
+    }));
+  }, [scenarios, baseCurrency, exchangeRates]);
+  
   // Projections
   const projectionData = useMemo(() => {
     if (accounts.length === 0) return [];
